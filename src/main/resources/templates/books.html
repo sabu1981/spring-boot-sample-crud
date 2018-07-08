@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Ejemplo Spring Boot</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(books)}">
+        <h2>Lista de libros</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Autor</th>
+                <th>Titulo</th>
+                <th>Imagen</th>
+
+            </tr>
+            <tr th:each="book : ${books}">
+                <td th:text="${book.id}">Id</td>
+                <td th:text="${book.autor}">AUTOR</td>
+                <td th:text="${book.titulo}">TITULO</td>
+                <td th:text="${book.imagen}">IMAGEN</td>
+
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
